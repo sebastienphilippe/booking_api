@@ -4,11 +4,11 @@ from django.utils import timezone
 class Booking(models.Model):
     ID = models.AutoField(primary_key=True)
     Name = models.CharField(max_length=255)
-    No_of_guests = models.SmallIntegerField(default=1)
+    No_of_guests = models.SmallIntegerField(default=6)
     BookingDate = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return f'{self.Name}: {self.BookingDate.date()}'
+        return f'{self.Name} for {self.No_of_guests} guests on {self.BookingDate}'
 
 class Menu(models.Model):
     ID = models.AutoField(primary_key=True)
